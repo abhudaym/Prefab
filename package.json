@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abhudaym/eproshop.git"
+    "url": "git+https://github.com/abhudaym/Prefab.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/abhudaym/eproshop/issues"
+    "url": "https://github.com/abhudaym/Prefab/issues"
   },
-  "homepage": "https://github.com/abhudaym/eproshop#readme",
+  "homepage": "https://github.com/abhudaym/Prefab#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
