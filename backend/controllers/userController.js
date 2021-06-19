@@ -28,7 +28,7 @@ const authUser = asyncHandler(async (req, res) => {
 // @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, contactno, website, company } = req.body;
 
   const userExist = await User.findOne({ email });
 
@@ -41,6 +41,9 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     email,
     password,
+    contactno,
+    website,
+    company,
   });
 
   if (user) {
@@ -68,6 +71,9 @@ const getUserProfile = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      contactno: user.contactno,
+      website: user.website,
+      company: user.company,
     });
   } else {
     res.status(404);
@@ -84,6 +90,9 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
+    user.contactno = req.body.contactno || user.contactno;
+    user.company = req.body.company || user.company;
+    user.website = req.body.website || user.website;
     if (req.body.password) {
       user.password = req.body.password;
     }
@@ -95,6 +104,9 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       name: updatedUser.name,
       email: updatedUser.email,
       isAdmin: updatedUser.isAdmin,
+      company: updateUser.company,
+      website: updateUser.website,
+      contactno: updateUser.contactno,
     });
   } else {
     res.status(404);
@@ -138,6 +150,8 @@ const getUserById = asyncHandler(async (req, res) => {
     throw new Error("User not found");
   }
 });
+
+// TO BE REMOVED
 
 // @desc    Update user profile
 // @route   PUT /api/users/:id

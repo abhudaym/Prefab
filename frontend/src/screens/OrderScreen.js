@@ -92,6 +92,7 @@ const OrderScreen = ({ match, history }) => {
   ) : (
     <>
       <h1>Order {order._id}</h1>
+      <h5>You need to pay a 5% advance directly to the seller.</h5>
       <Row>
         <Col md={8}>
           <ListGroup variant="flush">
@@ -200,7 +201,7 @@ const OrderScreen = ({ match, history }) => {
                     <Loader />
                   ) : (
                     <PayPalButton
-                      amount={order.totalPrice}
+                      amount={0.05 * order.totalPrice}
                       onSuccess={successPaymentHandler}
                     />
                   )}

@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler";
 import Product from "../models/productModel.js";
+import User from "../models/userModel.js";
 
 // @desc    Fetch All PRoducts
 // @route   GET /api/products
@@ -20,7 +21,6 @@ const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({ ...keyword })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
-
   res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
@@ -61,9 +61,9 @@ const createProduct = asyncHandler(async (req, res) => {
     price: 0,
     user: req.user._id,
     image: "/images/sample.jpg",
-    brand: "Sample brand",
-    category: "Sample category",
-    countInStock: 0,
+    customization: true,
+    rent: true,
+    type: "Pod",
     numReviews: 0,
     description: "Sample description",
   });
@@ -72,20 +72,13 @@ const createProduct = asyncHandler(async (req, res) => {
   res.status(201).json(createdProduct);
 });
 
+// CHECK IF SELLER IS SAME AS UPLOADER HERE
 // @desc    Update product
 // @route   PUT /api/products/:id
 // @access  Private/Admin
 const updateProduct = asyncHandler(async (req, res) => {
-  const {
-    name,
-    price,
-    description,
-    image,
-    brand,
-    category,
-    countInStock,
-  } = req.body;
-
+  const { name, price, description, image, type, customization, rent } =
+    req.body;
   const product = await Product.findById(req.params.id);
 
   if (product) {
@@ -93,9 +86,9 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.price = price || product.price;
     product.image = image || product.image;
     product.description = description || product.description;
-    product.brand = brand || product.brand;
-    product.category = category || product.category;
-    product.countInStock = countInStock || product.countInStock;
+    product.type = type || product.type;
+    product.customization = customization || product.customization;
+    product.rent = rent || product.rent;
     const updatedProduct = await product.save();
     res.status(201).json(updatedProduct);
   } else {
@@ -152,8 +145,33 @@ const getTopProducts = asyncHandler(async (req, res) => {
   res.json(products);
 });
 
+// CREATE A NEW ROUTE FOR FETCHING ADMIN PRODUCTS
+const getProductsAdmin = asyncHandler(async (req, res) => {
+  const pageSize = 10;
+  const page = Number(req.query.pageNumber) || 1;
+  const keyword = req.query.keyword
+    ? {
+        name: {
+          $regex: req.query.keyword,
+          $options: "i",
+        },
+      }
+    : {};
+  const user = await User.findById(req.user._id);
+
+  const count = await Product.countDocuments({ ...keyword });
+  const products = await Product.find({ user: user, ...keyword })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+  products.map((item) => {
+    console.log(item.user);
+  });
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
+});
+
 export {
   getProducts,
+  getProductsAdmin,
   getProductById,
   deleteProduct,
   createProduct,

@@ -12,6 +12,9 @@ const RegisterScreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [company, setCompany] = useState("");
+  const [website, setWebsite] = useState("");
+  const [contactno, setContactno] = useState("");
   const [message, setMessage] = useState(null);
 
   const dispatch = useDispatch();
@@ -31,7 +34,7 @@ const RegisterScreen = ({ location, history }) => {
     if (password !== confirmPassword) {
       setMessage("Passwords do not match!");
     } else {
-      dispatch(register(name, email, password));
+      dispatch(register(name, email, password, company, contactno, website));
     }
   };
   return (
@@ -60,6 +63,39 @@ const RegisterScreen = ({ location, history }) => {
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
+            }}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId="contactno">
+          <Form.Label>Contact Number</Form.Label>
+          <Form.Control
+            type="contactno"
+            placeholder="Enter Contact Number"
+            value={contactno}
+            onChange={(e) => {
+              setContactno(e.target.value);
+            }}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId="company">
+          <Form.Label>Company</Form.Label>
+          <Form.Control
+            type="company"
+            placeholder="Enter Company"
+            value={company}
+            onChange={(e) => {
+              setCompany(e.target.value);
+            }}
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId="website">
+          <Form.Label>Website</Form.Label>
+          <Form.Control
+            type="website"
+            placeholder="Enter Website"
+            value={website}
+            onChange={(e) => {
+              setWebsite(e.target.value);
             }}
           ></Form.Control>
         </Form.Group>

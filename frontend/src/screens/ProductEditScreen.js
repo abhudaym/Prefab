@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
@@ -15,9 +15,9 @@ const ProductEditScreen = ({ match, history }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
-  const [brand, setBrand] = useState("");
-  const [category, setCategory] = useState("");
-  const [countInStock, setCountInStock] = useState(0);
+  const [type, setType] = useState("");
+  const [rent, setRent] = useState("");
+  const [customization, setCustomization] = useState(true);
   const [description, setDescription] = useState("");
   const [uploading, setUploading] = useState(false);
 
@@ -44,9 +44,9 @@ const ProductEditScreen = ({ match, history }) => {
         setName(product.name);
         setPrice(product.price);
         setImage(product.image);
-        setBrand(product.brand);
-        setCategory(product.category);
-        setCountInStock(product.countInStock);
+        setType(product.type);
+        setCustomization(product.customization);
+        setRent(product.rent);
         setDescription(product.description);
       }
     }
@@ -83,10 +83,10 @@ const ProductEditScreen = ({ match, history }) => {
         name,
         price,
         image,
-        brand,
-        category,
+        type,
+        customization,
         description,
-        countInStock,
+        rent,
       })
     );
   };
@@ -143,34 +143,56 @@ const ProductEditScreen = ({ match, history }) => {
               {uploading && <Loader />}
             </Form.Group>
 
-            <Form.Group controlId="brand">
-              <Form.Label>Brand</Form.Label>
+            <Form.Group controlId="type">
+              <Form.Label>Type</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter brand"
-                value={brand}
-                onChange={(e) => setBrand(e.target.value)}
+                placeholder="Enter type"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="countInStock">
-              <Form.Label>Count In Stock</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Enter countInStock"
-                value={countInStock}
-                onChange={(e) => setCountInStock(e.target.value)}
-              ></Form.Control>
+            <Form.Group>
+              <Form.Label>Customization</Form.Label>
+              <Col>
+                <Form.Check
+                  type="radio"
+                  label="True"
+                  name="customization"
+                  value={true}
+                  checked
+                  onChange={(e) => setCustomization(e.target.value)}
+                ></Form.Check>
+                <Form.Check
+                  type="radio"
+                  label="False"
+                  name="customization"
+                  value={false}
+                  onChange={(e) => setCustomization(e.target.value)}
+                ></Form.Check>
+              </Col>
             </Form.Group>
 
-            <Form.Group controlId="category">
-              <Form.Label>Category</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              ></Form.Control>
+            <Form.Group>
+              <Form.Label>Rent</Form.Label>
+              <Col>
+                <Form.Check
+                  type="radio"
+                  label="True"
+                  name="rent"
+                  value={true}
+                  checked
+                  onChange={(e) => setRent(e.target.value)}
+                ></Form.Check>
+                <Form.Check
+                  type="radio"
+                  label="False"
+                  name="rent"
+                  value={false}
+                  onChange={(e) => setRent(e.target.value)}
+                ></Form.Check>
+              </Col>
             </Form.Group>
 
             <Form.Group controlId="description">

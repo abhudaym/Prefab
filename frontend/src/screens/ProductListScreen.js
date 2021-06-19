@@ -8,7 +8,7 @@ import Paginate from "../components/Paginate";
 import {
   createProduct,
   deleteProduct,
-  listProducts,
+  listProductsAdmin,
 } from "../actions/productActions";
 import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
 
@@ -47,7 +47,7 @@ const ProductListScreen = ({ history, match }) => {
     if (successCreate) {
       history.push(`/admin/product/${createdProduct._id}/edit`);
     } else {
-      dispatch(listProducts("", pageNumber));
+      dispatch(listProductsAdmin("", pageNumber));
     }
   }, [
     dispatch,

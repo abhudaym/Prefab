@@ -19,7 +19,19 @@ const userSchema = mongoose.Schema(
     isAdmin: {
       type: Boolean,
       required: true,
-      default: false,
+      default: true,
+    },
+    contactno: {
+      type: String,
+      required: true,
+    },
+    website: {
+      type: String,
+      required: false,
+    },
+    company: {
+      type: String,
+      required: true,
     },
   },
   {

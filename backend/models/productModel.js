@@ -41,16 +41,12 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    brand: {
-      type: String,
+    rent: {
+      type: Boolean,
       required: true,
     },
-    category: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
+    customization: {
+      type: Boolean,
       required: true,
     },
     price: { type: String, required: true },
@@ -65,10 +61,13 @@ const productSchema = mongoose.Schema(
       required: true,
       default: 0,
     },
-    countInStock: {
-      type: Number,
+    type: {
+      type: String,
       required: true,
-      default: 0,
+    },
+    description: {
+      type: String,
+      required: false,
     },
   },
   {
