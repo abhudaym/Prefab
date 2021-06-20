@@ -15,6 +15,7 @@ const RegisterScreen = ({ location, history }) => {
   const [company, setCompany] = useState("");
   const [website, setWebsite] = useState("");
   const [contactno, setContactno] = useState("");
+  const [isAdmin, setIsAdmin] = useState(true);
   const [message, setMessage] = useState(null);
 
   const dispatch = useDispatch();
@@ -34,7 +35,9 @@ const RegisterScreen = ({ location, history }) => {
     if (password !== confirmPassword) {
       setMessage("Passwords do not match!");
     } else {
-      dispatch(register(name, email, password, company, contactno, website));
+      dispatch(
+        register(name, email, password, company, contactno, website, isAdmin)
+      );
     }
   };
   return (
@@ -76,6 +79,27 @@ const RegisterScreen = ({ location, history }) => {
               setContactno(e.target.value);
             }}
           ></Form.Control>
+        </Form.Group>
+        <Form.Group>
+          <Col>
+            <Form.Check
+              type="radio"
+              label="Seller"
+              name="isAdmin"
+              value={true}
+              checked
+              onChange={(e) => setIsAdmin(e.target.value)}
+            >
+              {console.log(isAdmin)}
+            </Form.Check>
+            <Form.Check
+              type="radio"
+              label="User"
+              name="isAdmin"
+              value={false}
+              onChange={(e) => setIsAdmin(e.target.value)}
+            ></Form.Check>
+          </Col>
         </Form.Group>
         <Form.Group controlId="company">
           <Form.Label>Company</Form.Label>

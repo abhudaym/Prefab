@@ -19,11 +19,10 @@ const userSchema = mongoose.Schema(
     isAdmin: {
       type: Boolean,
       required: true,
-      default: true,
     },
     contactno: {
       type: String,
-      required: true,
+      required: false,
     },
     website: {
       type: String,
@@ -31,7 +30,7 @@ const userSchema = mongoose.Schema(
     },
     company: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   {

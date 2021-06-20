@@ -17,7 +17,7 @@ const ProductEditScreen = ({ match, history }) => {
   const [image, setImage] = useState("");
   const [type, setType] = useState("");
   const [rent, setRent] = useState("");
-  const [customization, setCustomization] = useState(true);
+  const [customization, setCustomization] = useState("");
   const [description, setDescription] = useState("");
   const [uploading, setUploading] = useState(false);
 
