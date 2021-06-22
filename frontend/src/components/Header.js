@@ -18,23 +18,29 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar
+        bg="dark"
+        variant="dark"
+        expand="lg"
+        collapseOnSelect
+        className="navbar"
+      >
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>PreFab Mart</Navbar.Brand>
+            <Navbar.Brand>PreFabMart</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Route render={({ history }) => <SearchBox history={history} />} />
             <Nav className="ml-auto">
+              <LinkContainer to="/faq">
+                <Nav.Link>
+                  <i className="fas fa-question"></i> FAQ
+                </Nav.Link>
+              </LinkContainer>
               <LinkContainer to="/cart">
                 <Nav.Link>
                   <i className="fas fa-shopping-cart"></i> Cart
-                </Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/faq">
-                <Nav.Link>
-                  <i className="fas fa-shopping-cart"></i> FAQ
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (

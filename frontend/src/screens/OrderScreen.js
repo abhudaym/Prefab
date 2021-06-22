@@ -157,6 +157,16 @@ const OrderScreen = ({ match, history }) => {
                           {item.qty} x ₹{item.price} = ₹{item.qty * item.price}
                         </Col>
                       </Row>
+                      <Row>
+                        <Col md={1}>
+                          5% x {item.qty * item.price} = ₹
+                          {0.05 * (item.qty * item.price)}
+                        </Col>
+                        <Col></Col>
+                        <Col md={4}>
+                          {item.qty} x ₹{item.price} = ₹{item.qty * item.price}
+                        </Col>
+                      </Row>
                     </ListGroup.Item>
                   ))}
                 </ListGroup>
