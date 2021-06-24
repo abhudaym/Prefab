@@ -20,11 +20,13 @@ import ProductListScreen from "./screens/ProductListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 import FaqScreen from "./screens/FaqScreen";
+import FreqScreen from "./screens/FreqScreen";
 
 const App = () => {
   return (
     <Router>
       <Header />
+      <FaqScreen />
       <main className="py-3">
         <Container>
           <Route path="/login" component={LoginScreen} />
@@ -57,7 +59,7 @@ const App = () => {
             exact
           />
           <Route path="/" component={HomeScreen} exact />
-          <Route path="/faq" component={FaqScreen} />
+          <Route path="/faq" component={FreqScreen} exact />
         </Container>
       </main>
       <Footer />

@@ -55,3 +55,31 @@ h2 {
 .navbar {
   background-color: #d83a56 !important;
 }
+
+.open-button {
+  opacity: 0.8;
+  position: fixed;
+  bottom: 50px;
+  right: 28px;
+  z-index: 999;
+  background-color: #129bf4;
+  color: #fff;
+  line-height: 55px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 23px;
+  width: 55px;
+  height: 55px;
+  text-align: center;
+  box-shadow: 2px 2px 8px -3px #000;
+  border-radius: 100%;
+}
+
+.chat-popup {
+  position: fixed;
+  bottom: 105px;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
