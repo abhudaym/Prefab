@@ -59,7 +59,7 @@ const PlaceOrderScreen = ({ history }) => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>Shipping</h2>
-              <h5>You need to pay a 5% advance directly to the seller.</h5>
+              <h5>YOU NEED TO PAY A 5% ADVANCE TO CONFIRM THE ORDER.</h5>
               <p>
                 <strong>Address: </strong>
                 {cart.shippingAddress.address}, {cart.shippingAddress.city}{" "}
