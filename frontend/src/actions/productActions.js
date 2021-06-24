@@ -20,6 +20,9 @@ import {
   PRODUCT_TOP_REQUEST,
   PRODUCT_TOP_SUCCESS,
   PRODUCT_TOP_FAIL,
+  PRODUCT_SELLER_REQUEST,
+  PRODUCT_SELLER_SUCCESS,
+  PRODUCT_SELLER_FAIL,
 } from "../constants/productConstants";
 import axios from "axios";
 
@@ -81,13 +84,24 @@ export const listProductsAdmin =
 export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
+    dispatch({ type: PRODUCT_SELLER_REQUEST });
 
     const { data } = await axios.get(`/api/products/${id}`);
+    const name = await axios.get(`/api/products/${id}/seller`);
+    const { data: data2 } = name;
 
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
+    dispatch({ type: PRODUCT_SELLER_SUCCESS, payload: data2 });
   } catch (error) {
     dispatch({
       type: PRODUCT_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+    dispatch({
+      type: PRODUCT_SELLER_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

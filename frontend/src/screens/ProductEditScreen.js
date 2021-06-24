@@ -158,7 +158,7 @@ const ProductEditScreen = ({ match, history }) => {
               <Col>
                 <Form.Check
                   type="radio"
-                  label="True"
+                  label="Available"
                   name="customization"
                   value={true}
                   checked
@@ -166,7 +166,7 @@ const ProductEditScreen = ({ match, history }) => {
                 ></Form.Check>
                 <Form.Check
                   type="radio"
-                  label="False"
+                  label="Not Available"
                   name="customization"
                   value={false}
                   onChange={(e) => setCustomization(e.target.value)}
@@ -179,7 +179,7 @@ const ProductEditScreen = ({ match, history }) => {
               <Col>
                 <Form.Check
                   type="radio"
-                  label="True"
+                  label="Available"
                   name="rent"
                   value={true}
                   checked
@@ -187,7 +187,7 @@ const ProductEditScreen = ({ match, history }) => {
                 ></Form.Check>
                 <Form.Check
                   type="radio"
-                  label="False"
+                  label="Available"
                   name="rent"
                   value={false}
                   onChange={(e) => setRent(e.target.value)}

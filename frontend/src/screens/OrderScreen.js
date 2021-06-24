@@ -157,14 +157,12 @@ const OrderScreen = ({ match, history }) => {
                           {item.qty} x ₹{item.price} = ₹{item.qty * item.price}
                         </Col>
                       </Row>
+                      <br></br>
                       <Row>
-                        <Col md={1}>
-                          5% x {item.qty * item.price} = ₹
-                          {0.05 * (item.qty * item.price)}
-                        </Col>
-                        <Col></Col>
+                        <Col md={1}></Col>
+                        <Col>Advance Payable</Col>
                         <Col md={4}>
-                          {item.qty} x ₹{item.price} = ₹{item.qty * item.price}
+                          5% x₹{item.price} = ₹{0.05 * item.qty * item.price}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -204,6 +202,12 @@ const OrderScreen = ({ match, history }) => {
                   <Col>₹{order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col>Advance Payable</Col>
+                  <Col>₹{0.05 * order.itemsPrice}</Col>
+                </Row>
+              </ListGroup.Item>
               {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
@@ -211,7 +215,7 @@ const OrderScreen = ({ match, history }) => {
                     <Loader />
                   ) : (
                     <PayPalButton
-                      amount={0.05 * order.totalPrice}
+                      amount={0.05 * order.itemsPrice}
                       onSuccess={successPaymentHandler}
                     />
                   )}

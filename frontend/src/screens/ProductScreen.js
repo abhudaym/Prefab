@@ -28,6 +28,9 @@ const ProductScreen = ({ history, match }) => {
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 
+  const productSeller = useSelector((state) => state.productSeller);
+  const { name } = productSeller;
+
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const { error: errorReview, success: successReview } = productReviewCreate;
 
@@ -82,6 +85,7 @@ const ProductScreen = ({ history, match }) => {
                 <ListGroup.Item>
                   Description: {product.description}
                 </ListGroup.Item>
+                <ListGroup.Item>Sold By: {name}</ListGroup.Item>
               </ListGroup>
             </Col>
             <Col md={3}>
@@ -108,21 +112,25 @@ const ProductScreen = ({ history, match }) => {
 
                   <ListGroup.Item>
                     <Row>
-                      <Col>Qty</Col>
+                      <Col>Rent</Col>
                       <Col>
-                        <Form.Control
-                          as="select"
-                          value={qty}
-                          onChange={(e) => {
-                            setQty(e.target.value);
-                          }}
-                        >
-                          {[...Array(product.countInStock).keys()].map((x) => (
-                            <option key={x + 1} value={x + 1}>
-                              {x + 1}
-                            </option>
-                          ))}
-                        </Form.Control>
+                        {product.rent ? (
+                          <strong>Available</strong>
+                        ) : (
+                          <strong>Not Available</strong>
+                        )}
+                      </Col>
+                    </Row>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <Row>
+                      <Col>Customization</Col>
+                      <Col>
+                        {product.customization ? (
+                          <strong>Available</strong>
+                        ) : (
+                          <strong>Not Available</strong>
+                        )}
                       </Col>
                     </Row>
                   </ListGroup.Item>

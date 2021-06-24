@@ -59,6 +59,7 @@ const PlaceOrderScreen = ({ history }) => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>Shipping</h2>
+              <h5>You need to pay a 5% advance directly to the seller.</h5>
               <p>
                 <strong>Address: </strong>
                 {cart.shippingAddress.address}, {cart.shippingAddress.city}{" "}
@@ -133,6 +134,12 @@ const PlaceOrderScreen = ({ history }) => {
                 <Row>
                   <Col>Total</Col>
                   <Col>₹{cart.totalPrice}</Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col>Advance Payable</Col>
+                  <Col>₹{0.05 * cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
