@@ -23,7 +23,7 @@ const HomeScreen = ({ match }) => {
   return (
     <>
       <Helmet>
-        <title>Welcome to eProShop | Home</title>
+        <title>Welcome to PrefabMart</title>
         <meta
           name="description"
           content="eCommerce Website developed by Abhuday"
