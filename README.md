@@ -4,6 +4,11 @@
 > Deployed Here: https://prefab-msft.azurewebsites.net/ <br/>
 > Prototype For Microsoft Azure Hackathon 2021
 
+Screenshots
+![Screenshot 2021-06-25 130242](https://user-images.githubusercontent.com/52799877/123388409-64fd0600-d5b6-11eb-9f0e-e69a9ebeba07.jpg)
+![image](https://user-images.githubusercontent.com/52799877/123388534-82ca6b00-d5b6-11eb-95cd-08856e51508d.png)
+
+
 ## Features
 
 - Full featured shopping cart
