@@ -187,7 +187,7 @@ const ProductEditScreen = ({ match, history }) => {
                 ></Form.Check>
                 <Form.Check
                   type="radio"
-                  label="Available"
+                  label="Not Available"
                   name="rent"
                   value={false}
                   onChange={(e) => setRent(e.target.value)}
