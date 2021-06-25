@@ -24,6 +24,9 @@ Screenshots
 ![image](https://user-images.githubusercontent.com/52799877/123393569-d5f2ec80-d5bb-11eb-97e1-e607ad884c07.png)
 
 - Product pagination
+
+![image](https://user-images.githubusercontent.com/52799877/123403342-4ef74180-d5c6-11eb-9409-b9f4ca124113.png)
+
 - Product search feature
 
 ![image](https://user-images.githubusercontent.com/52799877/123393893-2ec28500-d5bc-11eb-9c31-c99f1b218572.png)
