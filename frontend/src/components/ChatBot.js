@@ -5,7 +5,7 @@ const ChatBot = () => {
     <div>
       <iframe
         title="FaqBot"
-        src="https://webchat.botframework.com/embed/CS-AzureBot?s=2A26Wkeplyc.zinVOMGd220MLufHjMFs87rPKIkMWKq7XYWi-hslvdc"
+        src="https://webchat.botframework.com/embed/azurebot-prefab?s=j_xVOv7PCXo.mRzjPsWqxhFDRMu3ykJVTnxH3v43FNticU0Pp1r_bvM"
         style={{ minWidth: "400px", width: "20%", minHeight: "500px" }}
         className="chat-popup"
       ></iframe>
