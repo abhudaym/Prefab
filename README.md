@@ -43,6 +43,10 @@ Screenshots
 
 ![image](https://user-images.githubusercontent.com/52799877/123394494-d2ac3080-d5bc-11eb-870b-6fddf84dc409.png)
 
+- Buyer Info received
+
+![image](https://user-images.githubusercontent.com/52799877/123915887-969f1400-d99e-11eb-8bed-499cee18cc48.png)
+
 - Checkout process (shipping, payment method, etc)
 
 ![image](https://user-images.githubusercontent.com/52799877/123394153-73e6b700-d5bc-11eb-80b0-6760985f1018.png)
