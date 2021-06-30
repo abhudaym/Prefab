@@ -62,11 +62,25 @@ const FreqScreen = () => {
 
       <br />
       <h5 className="freq">
+        <strong>How to buy?</strong>
+      </h5>
+      <p className="freq">
+        Once you choose the products you want to proceed to know more about
+        before buying: Add them to the cart <strong>&gt;</strong> PrefabMaart
+        will receive your details along with the products you want to buy (
+        in-cart) and direct them to the respective sellers <strong>&gt;</strong>{" "}
+        Sellers will get in touch with you
+        <strong>&gt;</strong> finally to buy the product, pay the advance fee
+        and we will deliver the service.
+      </p>
+      <br />
+      <h5 className="freq">
         <strong>How do I sell on PrefabMart?</strong>
       </h5>
       <p className="freq">
-        Go to seller registration &gt; Fill the form &gt; Once verified by our
-        team you’ll be able to list down your products.
+        Go to seller registration <strong>&gt;</strong> Fill the form{" "}
+        <strong>&gt;</strong> Once verified by our team you’ll be able to list
+        down your products.
       </p>
       <br />
       <h5 className="freq">
@@ -75,7 +89,8 @@ const FreqScreen = () => {
       <p className="freq">
         Once you’re registered <strong>as a seller</strong> , you should see an
         admin option on the navbar.
-        <br /> Admin &gt; Products &gt; Create Products
+        <br /> Admin <strong>&gt;</strong> Products <strong>&gt;</strong> Create
+        Products
       </p>
       <br />
       <h5 className="freq">
